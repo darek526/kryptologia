@@ -34,8 +34,15 @@ Zamiana liter na kod ascii:
 [hex(ord(x))[2:] for x in "abc"]#system 16-owy
 [bin(ord(x))[2:] for x in "abc"]#sytem binarny
 
+lista=""
+lista=input("wpisz tekst")
+wpisz tekst>? hghjkhhjj
+print(lista)
+hghjkhhjj
 lista="jkhnjk jk"
+
 [bin(ord(x))[2:] for x in lista]#sytem binarny
 ['1101010', '1101011', '1101000', '1101110', '1101010', '1101011', '100000', '1101010', '1101011']
+
 """
 
