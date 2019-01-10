@@ -28,4 +28,11 @@ for i in range(4):
             # Nie wpisano cyfry
             print("wpisz cyfre!")
 print(wiadomosc)
+"""
+Zamiana liter na kod ascii:
+[ord(x) for x in "abc"]#system 10-tny
+[hex(ord(x))[2:] for x in "abc"]#system 16-owy
+[bin(ord(x))[2:] for x in "abc"]#sytem binarny
+
+"""
 
