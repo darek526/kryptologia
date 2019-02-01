@@ -12,16 +12,14 @@ def szyfruj():
     dodawanie = a + b
     wynik = "wiadomość po zaszyfrowaniu \n{}".format(dodawanie)
     pokaz_tekst_zaszyfrowany = Label(okno, bg="silver")
-    #pokaz_tekst_zaszyfrowany = Entry(okno, width=16, bg="silver")
     pokaz_tekst_zaszyfrowany["text"] = wynik
     pokaz_tekst_zaszyfrowany.grid(row=2, column=1)
 def deszyfruj():
     a = int(pobierz_szyfr.get())
     b = int(pobierz_klucz2.get())
     dodawanie = a + b
-    wynik = "wiadomość po zaszyfrowaniu \n{}".format(dodawanie)
+    wynik = "wiadomość po odszyfrowaniu \n{}".format(dodawanie)
     pokaz_tekst_zaszyfrowany = Label(okno, bg="silver")
-    #pokaz_tekst_zaszyfrowany = Entry(okno, width=16, bg="silver")
     pokaz_tekst_zaszyfrowany["text"] = wynik
     pokaz_tekst_zaszyfrowany.grid(row=6, column=1)
 def koniec():
