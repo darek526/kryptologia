@@ -23,18 +23,24 @@ def szyfruj():
     pokaz_tekst_zaszyfrowany["text"] = wynik
     pokaz_tekst_zaszyfrowany.grid(row=2, column=1)
 def deszyfruj():
-    a = int(pobierz_szyfr.get())
-    b = int(pobierz_klucz2.get())
+    a = (pobierz_szyfr.get())
+    b = (pobierz_klucz2.get())
     lewa = int(a[:8], 2)
     prawa = int(a[8:], 2)
     klucz = int(b, 2)
-    lewa_zaszyfr = (prawa)
-    prawa_zaszyfr = lewa ^ (prawa ^ klucz)
-    lewa_zaszyfr = bin(lewa_zaszyfr)
-    prawa_zaszyfr = bin(prawa_zaszyfr)
-    wynik = lewa_zaszyfr[2:] + prawa_zaszyfr[2:]
+    prawa_odszyfr= (lewa)
+    lewa_odszyfr = prawa ^ (lewa ^ klucz)
+    lewa_odszyfr = bin(lewa_odszyfr)
+    prawa_odszyfr = bin(prawa_odszyfr)
+    lewa_odszyfr = lewa_odszyfr[2:]
+    if len(lewa_odszyfr) < 8:#mniej niż 8 znaków
+        lewa_odszyfr="0" *(8 - len(lewa_odszyfr) + lewa_odszyfr)
+    prawa_odszyfr = prawa_odszyfr[2:]
+    if len(prawa_odszyfr) < 8:
+        prawa_odszyfr="0"* (8-len(prawa_odszyfr) + prawa_odszyfr)
+    wynik = lewa_odszyfr + prawa_odszyfr
     wynik = "wiadomość po zaszyfrowaniu \n" + wynik
-    wynik = "wiadomość po odszyfrowaniu \n{}".format(dodawanie)
+    #wynik = "wiadomość po odszyfrowaniu \n{}".format(wynik)
     pokaz_tekst_zaszyfrowany = Label(okno, bg="silver")
     pokaz_tekst_zaszyfrowany["text"] = wynik
     pokaz_tekst_zaszyfrowany.grid(row=6, column=1)
