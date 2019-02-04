@@ -34,10 +34,10 @@ def deszyfruj():
     prawa_odszyfr = bin(prawa_odszyfr)
     lewa_odszyfr = lewa_odszyfr[2:]
     if len(lewa_odszyfr) < 8:#mniej niż 8 znaków
-        lewa_odszyfr="0" *(8 - len(lewa_odszyfr) + lewa_odszyfr)
+        lewa_odszyfr="0" *(8 - len(lewa_odszyfr) + int(lewa_odszyfr))
     prawa_odszyfr = prawa_odszyfr[2:]
     if len(prawa_odszyfr) < 8:
-        prawa_odszyfr="0"* (8-len(prawa_odszyfr) + prawa_odszyfr)
+        prawa_odszyfr="0"* (8-len(prawa_odszyfr) + int(prawa_odszyfr))
     wynik = lewa_odszyfr + prawa_odszyfr
     wynik = "wiadomość po zaszyfrowaniu \n" + wynik
     #wynik = "wiadomość po odszyfrowaniu \n{}".format(wynik)
