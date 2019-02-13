@@ -11,19 +11,18 @@ def losuj_tekst():
     b=""
     for i in range(16):
         a.append(str(random.randint(0,1)))#utworzenie listy stringów
-    b="".join(a)#zamiana listy na ciąg znaków
+    b="".join(a)#zamiana listy na ciąg znaków bez spacji
     #text_Input.set(operator)
     pobierz_tekst_jawny.delete(0,END)
-    pobierz_tekst_jawny.insert(END,str(b))
-    #pokaz_tekst_losowy["text"]=b
+    pobierz_tekst_jawny.insert(END,(b))
 def losuj_klucz():
     c = []
     d = ""
     for i in range(8):
         c.append(str(random.randint(0, 1)))  # utworzenie listy stringów
-    d="".join(c)  # zamiana listy na ciąg znaków
+    d="".join(c)  # zamiana listy na ciąg znaków bez spacji
     pobierz_klucz.delete(0,END)
-    pobierz_klucz.insert(END,str(d))
+    pobierz_klucz.insert(END,(d))
 def szyfruj():
     a = (pobierz_tekst_jawny.get())
     b = (pobierz_klucz.get())
@@ -36,7 +35,6 @@ def szyfruj():
     prawa_zaszyfr=bin(prawa_zaszyfr)
     wynik = lewa_zaszyfr[2:] + prawa_zaszyfr[2:]
     wynik="wiadomość po zaszyfrowaniu \n" +wynik
-    #wynik = "wiadomość po zaszyfrowaniu \n{}".format(wynik)
     pokaz_tekst_zaszyfrowany["text"] = wynik
 def deszyfruj():
     a = (pobierz_szyfr.get())
@@ -55,8 +53,7 @@ def deszyfruj():
     if len(prawa_odszyfr) < 8:
         prawa_odszyfr="0"* (8-len(prawa_odszyfr) + int(prawa_odszyfr))
     wynik = lewa_odszyfr + prawa_odszyfr
-    wynik = "wiadomość po zaszyfrowaniu \n" + wynik
-    #wynik = "wiadomość po odszyfrowaniu \n{}".format(wynik)
+    wynik = "wiadomość po odszyfrowaniu \n" + wynik
     pokaz_tekst_zaszyfrowany = Label(okno, bg="silver")
     pokaz_tekst_zaszyfrowany["text"] = wynik
     pokaz_tekst_zaszyfrowany.grid(row=8, column=1)
@@ -79,8 +76,6 @@ pobierz_tekst_jawny = Entry(okno,width=16)
 pobierz_klucz = Entry(okno,width=8)
 pobierz_szyfr = Entry(okno,width=16)
 pobierz_klucz2 = Entry(okno,width=8)
-pokaz_tekst_losowy = Label(okno)
-pokaz_klucz_losowy = Label(okno)
 #aktywacja położenia etkiet i pól wpisywania tekstu
 tekst_jawny.grid(row = 0)
 klucz.grid(row = 1)
@@ -91,8 +86,6 @@ szyfr.grid(row = 6)
 klucz2.grid(row = 7)
 pobierz_szyfr.grid(row = 6, column = 1)
 pobierz_klucz2.grid(row = 7, column = 1)
-pokaz_tekst_losowy.grid(row = 10, column = 0)
-pokaz_klucz_losowy.grid(row = 10, column = 1)
 #definiowanie przycisków nazwy,kolory, położenie
 przycisk1 = Button(okno,text = "Szyfruj wiadomość", command = szyfruj)
 przycisk1.grid(row = 4, column = 0)
@@ -100,7 +93,7 @@ przycisk2 = Button(okno, text = "Deszyfruj widomość", command = deszyfruj)
 przycisk2.grid(row = 8, column = 0)
 przycisk3 = Button(okno, text = "Losowanie wiadomości", command = losuj_tekst)
 przycisk3.grid(row = 2, column = 0)
-przycisk4 = Button(okno, text = "Losowanie klucza", command = losuj_klucz())
+przycisk4 = Button(okno, text = "Losowanie klucza", command = losuj_klucz)
 przycisk4.grid(row = 2, column = 1)
 przycisk5 = Button(okno,text = "Zamknij program", command = koniec)
 przycisk5.grid(row = 9, column = 1)
