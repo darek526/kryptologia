@@ -78,6 +78,12 @@ def koniec():
         okno.destroy()#zamyka nasze okno
     else:
         msb.showinfo("Info","Ok, popracujmy dalej")#powrót do okna
+def kasowanie():
+    pobierz_tekst_jawny.delete(0, END)
+    pobierz_klucz.delete(0,END)
+    pobierz_szyfr.delete(0,END)
+    pobierz_klucz2.delete(0,END)
+
 #definiowanie etykiet
 tekst_jawny = Label(okno, text ="Wpisz wiadomość, 16 bitów")
 klucz = Label(okno, text = "Wpisz klucz,8 bitów")
@@ -111,6 +117,6 @@ przycisk4 = Button(okno, text = "Losowanie klucza", command = losuj_klucz)
 przycisk4.grid(row = 2, column = 1)
 przycisk5 = Button(okno,text = "Zamknij program", command = koniec)
 przycisk5.grid(row = 9, column = 1)
-przycisk6 = Button(okno,text = "Wyczyść pola", command = lambda: pobierz_tekst_jawny.delete(0,END))
+przycisk6 = Button(okno,text = "Wyczyść pola", command = kasowanie)#lambda: kasuj.delete(0,END))
 przycisk6.grid(row = 9)
 okno.mainloop()#włączamy pętle
