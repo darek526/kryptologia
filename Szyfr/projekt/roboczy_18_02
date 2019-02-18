@@ -72,9 +72,7 @@ def deszyfruj():
                     prawa_odszyfr = "0" * (8 - len(prawa_odszyfr) + int(prawa_odszyfr))
                 wynik = lewa_odszyfr + prawa_odszyfr
                 wynik = "wiadomość po odszyfrowaniu \n" + wynik
-                pokaz_tekst_odszyfrowany = Label(okno, bg="silver")
                 pokaz_tekst_odszyfrowany["text"] = wynik
-                pokaz_tekst_odszyfrowany.grid(row=8, column=1)
             else:
                 msb.showerror("Błąd","Nieodpowiednia ilość \nznaków klucza. Proszę poprawić")
                 #okno z komunikatem o błędzie podanego klucza
@@ -101,10 +99,11 @@ def kasowanie():
 #definiowanie etykiet
 tekst_jawny = Label(okno, text ="Wpisz wiadomość 16 bitów",bg="silver")
 klucz = Label(okno, text = "Wpisz klucz,8 bitów",bg="silver")
-pokaz_tekst_zaszyfrowany = Label(okno, bg="silver")
+pokaz_tekst_zaszyfrowany = Label(okno)
 tekst_zaszyfrowany = Label(okno,text = "Wiadomość zaszyfrowana",bg="silver")
 szyfr = Label(okno, text ="Wpisz wiadomość zaszyfrowaną",bg="silver")
 klucz2 = Label(okno, text = "Wpisz klucz,8 bitów",bg="silver")
+pokaz_tekst_odszyfrowany = Label(okno)
 #definiowanie pola do wpisywania
 pobierz_tekst_jawny = Entry(okno,width=16,bg="yellow")
 pobierz_klucz = Entry(okno,width=8,bg="yellow")
@@ -120,6 +119,7 @@ szyfr.grid(row = 6)
 klucz2.grid(row = 7)
 pobierz_szyfr.grid(row = 6, column = 1)
 pobierz_klucz2.grid(row = 7, column = 1)
+pokaz_tekst_odszyfrowany.grid(row=8, column=1)
 #definiowanie przycisków nazwy,kolory, położenie
 przycisk1 = Button(okno,text = "Szyfruj wiadomość",bg="green", command = szyfruj)
 przycisk1.grid(row = 4, column = 0)
