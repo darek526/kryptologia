@@ -2,6 +2,8 @@
 #(Shebang)sciężka do interpretera który ma zostać użyty w celu wykonania skryptu
 # -*- coding: utf-8 -*-
 # ustawiamy kodowanie znaków całego pliku czyli polskie litery
+import time
+from datetime import timedelta #pobranie modułu time
 import random#pobranie modułu random generator liczb pseudolosowych
 from tkinter import *#pobranie biblioteki  tkinter umożliwia tworzenie interfejsu graficzneo
 from tkinter import messagebox as msb#pobranie modułu z funkcjami do obsługi okien dialogowych
@@ -102,21 +104,28 @@ def koniec():# definiujemy nową funkcje
 def kasowanie():# czyszczenie zawartości poszczególnych pól i okien
     pobierz_tekst_jawny.delete(0, END)
     pobierz_klucz.delete(0,END)
+    pobierz_powtorzenia.delete(0, END)
     pobierz_szyfr.delete(0,END)
     pobierz_klucz2.delete(0,END)
+    czas_szyfrowania["text"] = ""
+    czas_deszyfrowania["text"] = ""
     pokaz_tekst_zaszyfrowany["text"]=""
     pokaz_tekst_odszyfrowany["text"] = ""
-#definiowanie etykiet nazwy kolory
+#definiowanie etykiet tresc
 tekst_jawny = Label(okno, text ="Wpisz wiadomość 16 bitów")
 klucz = Label(okno, text = "Wpisz klucz,8 bitów")
+powtorzenia = Label(okno, text = "Wpisz ilość powtórzeń szyfrowań")
 pokaz_tekst_zaszyfrowany = Label(okno)
 tekst_zaszyfrowany = Label(okno,text = "Wiadomość zaszyfrowana")
+czas_szyfrowania = Label(okno)
 szyfr = Label(okno, text ="Wpisz wiadomość zaszyfrowaną")
 klucz2 = Label(okno, text = "Wpisz klucz,8 bitów")
 pokaz_tekst_odszyfrowany = Label(okno)
+czas_deszyfrowania = Label(okno)
 #definiowanie pola do wpisywania długość
 pobierz_tekst_jawny = Entry(okno,width=16)
 pobierz_klucz = Entry(okno,width=8)
+pobierz_powtorzenia = Entry(okno, width=8)
 pobierz_szyfr = Entry(okno,width=16)
 pobierz_klucz2 = Entry(okno,width=8)
 #aktywacja położenia etkiet i pól wpisywania tekstu wiersze i kolumny
@@ -124,13 +133,17 @@ tekst_jawny.grid(row = 0)
 klucz.grid(row = 1)
 pobierz_tekst_jawny.grid(row = 0, column = 1)
 pobierz_klucz.grid(row = 1,column = 1)
-pokaz_tekst_zaszyfrowany.grid(row=4, column=1)
+powtorzenia.grid(row = 0, column = 2)
+pobierz_powtorzenia.grid(row = 1,column = 2)
+pokaz_tekst_zaszyfrowany.grid(row = 4, column = 1)
+czas_szyfrowania.grid(row = 4, column = 2)
 szyfr.grid(row = 6)
 klucz2.grid(row = 7)
 pobierz_szyfr.grid(row = 6, column = 1)
 pobierz_klucz2.grid(row = 7, column = 1)
 pokaz_tekst_odszyfrowany.grid(row=8, column=1)
-#definiowanie przycisków nazwy,kolory, położenie, uruchamiane funkcje
+czas_deszyfrowania.grid(row = 8, column = 2)
+#definiowanie przycisków nazwy, położenie, uruchamiane funkcje
 przycisk1 = Button(okno,text = "Szyfruj wiadomość", command = szyfruj)
 przycisk1.grid(row = 4, column = 0)
 przycisk2 = Button(okno, text = "Deszyfruj widomość", command = deszyfruj)
