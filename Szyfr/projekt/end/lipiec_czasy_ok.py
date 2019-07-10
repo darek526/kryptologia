@@ -57,7 +57,7 @@ def szyfruj():# definiujemy nową funkcje
                 end_time = time.monotonic()#koniec obliczania czasu szyfrowania
                 czas = timedelta(seconds=end_time - start_time)
                 czas_szyfrowania["text"] = ""  # pusty ciąg znaków
-                czas_szyfrowania["text"] = "czas szyfrowania: {}".format(czas)#wyswietla czas szyfrowania
+                czas_szyfrowania["text"] = "czas szyfrowania: \n{}".format(czas)#wyswietla czas szyfrowania
             else:
                 msb.showerror("Błąd","Nieodpowiednia ilość \nznakóœ klucza. Proszę poprawić")
                 #okno z komunikatem o błędzie podanego klucza
@@ -96,7 +96,7 @@ def deszyfruj():# definiujemy nową funkcje
                 end_time = time.monotonic()# koniec liczenia czasu
                 czas = timedelta(seconds=end_time - start_time)
                 czas_deszyfrowania["text"] = ""  # pusty ciąg znaków
-                czas_deszyfrowania["text"] = "czas deszyfrowania: {}".format(czas)  # wyświetla czas deszyfracji
+                czas_deszyfrowania["text"] = "czas deszyfrowania: \n{}".format(czas)  # wyświetla czas deszyfracji
             else:
                 msb.showerror("Błąd","Nieodpowiednia ilość \nznaków klucza. Proszę poprawić")
                 #okno z komunikatem o błędzie podanego klucza
