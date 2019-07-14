@@ -35,7 +35,8 @@ def szyfruj():# definiujemy nową funkcje
         if len(a) == 16 and int(a, 2) <= (2 ** 16):# sprawdzenie długości tekstu jawnego
             if len(b) == 8 and int(b, 2) <= (2 ** 8):# sprawdzenie długości klucza
                 msb.showinfo("ok","Podano poprawny format\n wiadomość i klucza ")# okno informacyjne
-                start_time = time.monotonic()#start obliczania czasu szyfrowania
+                czas_start\
+                    = time.monotonic()#start obliczania czasu szyfrowania
                 p=int(pobierz_powtorzenia.get())
                 while p > 0:
                     lewa = int(a[:8], 2)#pierwsz połowa stringu a, od początku 0 do 8 pozycji (bez 8 strażnik)
@@ -55,13 +56,14 @@ def szyfruj():# definiujemy nową funkcje
                     p -= 1
                     a=(lewa_zaszyfr + prawa_zaszyfr)
                 wynik = lewa_zaszyfr + prawa_zaszyfr# konkatenacja stringów
-                wynik = "wiadomość po zaszyfrowaniu \n" + wynik
+                wynik = "Wiadomość po zaszyfrowaniu \n" + wynik
                 pokaz_tekst_zaszyfrowany["text"]=""# pusty ciąg znaków
                 pokaz_tekst_zaszyfrowany["text"] = wynik#przekierowujemy string wynik jako text do okna
-                end_time = time.monotonic()#koniec obliczania czasu szyfrowania
-                czas = timedelta(seconds=end_time - start_time)#czas szyfrowania
+                czas_stop = time.monotonic()#koniec obliczania czasu szyfrowania
+                czas = (czas_stop - czas_start)#czas szyfrowania
                 czas_szyfrowania["text"] = ""  # pusty ciąg znaków
-                czas_szyfrowania["text"] = "czas szyfrowania: \n{}".format(czas)#wyswietla czas szyfrowania
+                czas_szyfrowania["text"] = "Czas szyfrowania: \n{:.6f} [s]".format(czas)
+                #wyswietla czas szyfrowania w sekundach 6 miejsc po przecinku
             else:
                 msb.showerror("Błąd","Nieodpowiednia ilość \nznakóœ klucza. Proszę poprawić")
                 #okno z komunikatem o błędzie podanego klucza
@@ -78,7 +80,7 @@ def deszyfruj():# definiujemy nową funkcje
         if len(a) == 16 and int(a, 2) <= (2 ** 16):#sprawdzenie długości szyfru
             if len(b) == 8 and int(b, 2) <= (2 ** 8):# sprawdzenie długości klucza
                 msb.showinfo("ok","Podano poprawny format\n wiadomość i klucza ")# okno informacyjne
-                start_time = time.monotonic()#początek liczenia czasu
+                czas_start = time.monotonic()#początek liczenia czasu
                 p = int(pobierz_powtorzenia.get())#zamiana stringu na int
                 while p > 0:#pętla licząca ilość szyfrowań
                     lewa = int(a[:8], 2)#pierwsz połowa stringu a, od początku 0 do 8 pozycji (bez 8 strażnik)
@@ -98,13 +100,14 @@ def deszyfruj():# definiujemy nową funkcje
                     p -= 1
                     a = (lewa_odszyfr + prawa_odszyfr)
                 wynik = lewa_odszyfr + prawa_odszyfr# konkatenacja stringów
-                wynik = "wiadomość po odszyfrowaniu \n" + wynik
+                wynik = "Wiadomość po odszyfrowaniu \n" + wynik
                 pokaz_tekst_odszyfrowany["text"]=""# pusty ciąg znaków
                 pokaz_tekst_odszyfrowany["text"] = wynik#przekierowujemy string wynik jako text do okna
-                end_time = time.monotonic()# koniec liczenia czasu
-                czas = timedelta(seconds=end_time - start_time)#czas szyfrowanai
+                czas_stop = time.monotonic()# koniec liczenia czasu
+                czas = (czas_stop - czas_start)#czas szyfrowanai
                 czas_deszyfrowania["text"] = ""  # pusty ciąg znaków
-                czas_deszyfrowania["text"] = "czas deszyfrowania: \n{}".format(czas)  # wyświetla czas deszyfracji
+                czas_deszyfrowania["text"] = "Czas deszyfrowania: \n{:.6f} [s]".format(czas)
+                # wyswietla czas deszyfrowania w sekundach 6 miejsc po przecinku
             else:
                 msb.showerror("Błąd","Nieodpowiednia ilość \nznaków klucza. Proszę poprawić")
                 #okno z komunikatem o błędzie podanego klucza
